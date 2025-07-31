@@ -4,6 +4,16 @@ import Button from "react-bootstrap/Button";
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
 
+/**
+ * This component renders a Card component with the following properties:
+ * imgPath: The path to the image to be used for the Card.
+ * title: The title of the Card.
+ * description: The description of the Card.
+ * ghLink: The link to the GitHub repository.
+ * isBlog: A boolean indicating if the Card is for a blog.
+ * demoLink: The link to the demo of the project.
+ */
+
 function ProjectCards(props) {
   return (
     <Card className="project-card-view">

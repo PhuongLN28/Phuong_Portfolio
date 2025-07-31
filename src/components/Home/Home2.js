@@ -10,6 +10,11 @@ import {
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 
+/**
+ * A component that renders a section about the author.
+ * It includes a brief bio, a profile picture, and a list of social media links.
+ * @returns {React.Component} The About component.
+ */
 function Home2() {
   return (
     <Container fluid className="home-about-section" id="about">
@@ -52,6 +57,7 @@ function Home2() {
           </Col>
           <Col md={4} className="myAvtar">
             <Tilt>
+              {/* The profile picture. */}
               <img src={myImg} className="img-fluid" alt="avatar" />
             </Tilt>
           </Col>
@@ -63,6 +69,7 @@ function Home2() {
               Feel free to <span className="purple">connect </span>with me
             </p>
             <ul className="home-about-social-links">
+              {/* Social media links. */}
               <li className="social-icons">
                 <a
                   href="https://github.com/PhuongLN28"

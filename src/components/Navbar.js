@@ -16,10 +16,30 @@ import {
 
 import { CgFileDocument } from "react-icons/cg";
 
+/**
+ * The main navigation bar component.
+ *
+ * This component is responsible for rendering the navigation bar at the top
+ * of the page. It includes links to the home page, about page, projects page,
+ * resume page, and blogs page. It also includes a link to the GitHub repository
+ * and a star button to indicate the number of stars on the repository.
+ *
+ * @returns {JSX.Element} The JSX element representing the navigation bar.
+ */
 function NavBar() {
+  /**
+   * Whether the navigation bar is expanded or not.
+   */
   const [expand, updateExpanded] = useState(false);
+
+  /**
+   * Whether the navigation bar should have a dark background or not.
+   */
   const [navColour, updateNavbar] = useState(false);
 
+  /**
+   * Handles the scroll event by updating the state of the navigation bar.
+   */
   function scrollHandler() {
     if (window.scrollY >= 20) {
       updateNavbar(true);
@@ -28,21 +48,33 @@ function NavBar() {
     }
   }
 
+  // Add a scroll event listener to the window to update the state of the
+  // navigation bar when the user scrolls.
   window.addEventListener("scroll", scrollHandler);
 
   return (
+    // The navigation bar component.
     <Navbar
+      // Whether the navigation bar is expanded or not.
       expanded={expand}
+      // Whether the navigation bar is fixed to the top of the page or not.
       fixed="top"
+      // The breakpoint at which the navigation bar should expand.
       expand="md"
+      // The class name of the navigation bar.
+      // If the navigation bar should have a dark background, this will be "sticky".
       className={navColour ? "sticky" : "navbar"}
     >
       <Container>
+        {/* The brand logo of the navigation bar. */}
         <Navbar.Brand href="/" className="d-flex">
           <img src={logo} className="img-fluid logo" alt="brand" />
         </Navbar.Brand>
+
+        {/* The toggle button to expand or collapse the navigation bar. */}
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
+          // The function to call when the toggle button is clicked.
           onClick={() => {
             updateExpanded(expand ? false : "expanded");
           }}
@@ -51,14 +83,18 @@ function NavBar() {
           <span></span>
           <span></span>
         </Navbar.Toggle>
+
+        {/* The items in the navigation bar. */}
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto" defaultActiveKey="#home">
+            {/* The home page link. */}
             <Nav.Item>
               <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
                 <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
               </Nav.Link>
             </Nav.Item>
 
+            {/* The about page link. */}
             <Nav.Item>
               <Nav.Link
                 as={Link}
@@ -69,6 +105,7 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>
 
+            {/* The projects page link. */}
             <Nav.Item>
               <Nav.Link
                 as={Link}
@@ -82,6 +119,7 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>
 
+            {/* The resume page link. */}
             <Nav.Item>
               <Nav.Link
                 as={Link}
@@ -92,16 +130,18 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>
 
+            {/* The blogs page link. */}
             <Nav.Item>
               <Nav.Link
-                href="https://soumyajitblogs.vercel.app/"
-                target="_blank"
-                rel="noreferrer"
+                as={Link}
+                to="/blogs"
+                onClick={() => updateExpanded(false)}
               >
                 <ImBlog style={{ marginBottom: "2px" }} /> Blogs
               </Nav.Link>
             </Nav.Item>
 
+            {/* The fork button. */}
             <Nav.Item className="fork-btn">
               <Button
                 href="https://github.com/PhuongLN28"
