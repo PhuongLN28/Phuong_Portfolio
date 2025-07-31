@@ -11,6 +11,15 @@ import bitsOfCode from "../../Assets/Projects/blog.png";
 import ocr from "../../Assets/Projects/ocr.avif";
 import lark_chatbot from "../../Assets/Projects/lark_chat_bot.png";
 
+/**
+ * Renders a section displaying a collection of recent projects.
+ *
+ * This component utilizes React Bootstrap components to layout the project cards
+ * and includes a particle effect in the background for visual enhancement.
+ * Each project card contains an image, title, description, and links to GitHub
+ * repositories and demo videos if available.
+ */
+
 function Projects() {
   return (
     <Container fluid className="project-section">
@@ -42,7 +51,7 @@ function Projects() {
               description="Build a Backend connecting Low-code Dify with Lark's botchat system using API. Using FlaskAPI, PostgreSQL."
             />
           </Col>
-
+{/* 
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={editor}
@@ -86,7 +95,7 @@ function Projects() {
               ghLink="https://github.com/soumyajit4419/Face_And_Emotion_Detection"
               // demoLink="https://blogs.soumya-jit.tech/"      <--------Please include a demo link here 
             />
-          </Col>
+          </Col> */}
         </Row>
       </Container>
     </Container>
